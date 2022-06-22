@@ -21,11 +21,13 @@
                 </label>
             </div>
             <button class="btn btn-lg aqua-gradient-rgba btn-block" type="submit">Sign in</button>
+            <h4 id = "no_account">Don't have an account?<a href="{% url 'register_user' %}"> Sign up</a></h4>
         </form>
+        <!-- <div style="width:50vw" id = "no_account">
+            <h4>Don't have an account?<a href="{% url 'register_user' %}"> Sign up</a></h4>
+        </div> -->
     </div>
 </div>
-<div style="width:50vw" id = "no_account">
-    <h4>Don't have an account?<a href="{% url 'register_user' %}"> Sign up</a></h4>
-</div>
+
 
 {%endblock%}

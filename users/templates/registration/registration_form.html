@@ -1,6 +1,7 @@
 {%extends "registration/base.html"%} 
 {% load bootstrap3 %}
 {% block content %}
+<br>
 <section id="content">
   <div class="text-center">
     {% if form.errors %}
@@ -15,11 +16,12 @@
       <input type="submit" class="btn aqua-gradient-rgba btn-sm" value="Sign Up">
     </div>
     <input type="hidden" name="next" value="{{next}}">
+    <h4 id = "no_account">Have an account?<a href="{% url 'user_login' %}"> Log in</a></h4>
   </form>
 </section>
-<div id = "no_account">
+<!-- <div id = "no_account">
     <h4>Have an account?<a href="{% url 'user_login' %}"> Log in</a></h4>
-</div>
+</div> -->
 
 
 {% endblock %}

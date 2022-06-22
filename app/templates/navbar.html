@@ -4,7 +4,7 @@
 {% endblock styles%}
 
 <nav class="mb-1 navbar navbar-expand-lg navbar-light ">
-  <a class="navbar-brand" href="{%url 'home_page'%}">Loop Your Hood</a>
+  <a class="navbar-brand" href="{%url 'home'%}"> Weather Your Destination</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
     aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -12,9 +12,9 @@
   <div style="width: 100;" class="collapse navbar-collapse" id="navbarSupportedContent-555">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-      <form action="{% url 'search_business' %}" class="form-inline mr-auto my-1">
+      <form action="{% url 'home' %}" class="form-inline mr-auto my-1">
         <div class="md-form form-sm my-0">
-          <input class="form-control form-control-sm mr-sm-2 mb-0" name="bs_name" id="bs_name" type="text" placeholder="Search Business"
+          <input class="form-control form-control-sm mr-sm-2 mb-0" name="bs_name" id="bs_name" type="text" placeholder="Search City"
             aria-label="Search">
         </div>
       </form>
@@ -31,12 +31,10 @@
         </a>
       </li>
       <li class="nav-item ">
-        <a class="nav-link" href="{%url 'help'%}"><i class="fas fa-briefcase"></i>How to
+        <a class="nav-link" href="{%url 'help'%}"><i class="fas fa-briefcase"></i>How To
         </a>
       </li>
-      <li class="nav-item ">
-        <a class="nav-link" href="{%url 'hood_posts'%}"><i class="far fa-comments"></i>Forum
-        </a>
+      <!--  -->
       </li>
       <li class="nav-item avatar dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
