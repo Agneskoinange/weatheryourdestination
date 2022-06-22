@@ -33,10 +33,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'app',
-    'app.apps.AppConfig',
+    'app',
     'users',
     'pyuploadcare.dj',
+    'registration',
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [
@@ -141,7 +142,5 @@ UPLOADCARE = {
     'pub_key': '0cabf90972fb0df60637',
     'secret': '49f08f82b117e6fa2a27',
 }
-
-
 
 django_heroku.settings(locals())

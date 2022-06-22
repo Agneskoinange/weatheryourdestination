@@ -6,6 +6,7 @@ from .forms import CityForm
 from .models import city
 from django.views.generic.edit import DeleteView
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
 
 
 api_key = "9e26c2486a12a759d7a692b9b05a3948"
@@ -15,7 +16,7 @@ url = base_url + "appid=" + api_key + "&q=" + new_city
 response = requests.get(url)
 
 #views.
-
+@login_required(login_url='/accounts/login')
 def index(request):
     
     # url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid={YOUR API KEY}'
@@ -77,13 +78,17 @@ def index(request):
     }
 
     return render(request, 'weather/weather.html',context)
+
+@login_required(login_url='/accounts/login')
 def about(request) :
     return render(request,'weather/about.html')
 
-    
+@login_required(login_url='/accounts/login')  
 def delete_city(request, city_name):
     city.objects.get(name=city_name).delete()
     return redirect('home')
 
+
+@login_required(login_url='/accounts/login')
 def help(request):
     return render(request,'weather/help.html')
