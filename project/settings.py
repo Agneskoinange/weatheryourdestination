@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     # 'app',
     'app.apps.AppConfig',
     'users',
+    'pyuploadcare.dj',
 ]
 
 MIDDLEWARE = [
@@ -135,6 +136,12 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+UPLOADCARE = {
+    'pub_key': '0cabf90972fb0df60637',
+    'secret': '49f08f82b117e6fa2a27',
+}
+
 
 
 django_heroku.settings(locals())
