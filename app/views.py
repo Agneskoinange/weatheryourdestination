@@ -1,7 +1,6 @@
 from django.shortcuts import render,redirect
-
-# Create your views here.
 import requests
+import json
 from django.http import HttpResponseRedirect,HttpResponse
 from .forms import CityForm
 from .models import city
@@ -9,13 +8,30 @@ from django.views.generic.edit import DeleteView
 from django.urls import reverse_lazy
 
 
+api_key = "9e26c2486a12a759d7a692b9b05a3948"
+base_url = "http://api.openweathermap.org/data/2.5/weather?"
+new_city = ("Nairobi")
+url = base_url + "appid=" + api_key + "&q=" + new_city
+response = requests.get(url)
+
+#views.
+
 def index(request):
-    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid={YOUR API KEY}'
+    
+    # url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid={YOUR API KEY}'
+    url =f'http://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&appid="9e26c2486a12a759d7a692b9b05a3948"'
+    # url = f"https://api.openweathermap.org/data/2.5/weather?q={city}"
+    # x = requests.get(url, params={"appid": "9e26c2486a12a759d7a692b9b05a3948"})
+
+    # x = x.json()
+    # url='api.openweathermap.org/data/2.5/weather?q={'city'} &units=imperial&appid=9e26c2486a12a759d7a692b9b05a3948'
+
     err_msg = ''
     message = ''
     message_class = ''
     if request.method == 'POST':
         form = CityForm(request.POST)
+        
         if form.is_valid():
             new_city = form.cleaned_data['name']
             existing_city_count = city.objects.filter(name=new_city).count()
