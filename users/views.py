@@ -16,7 +16,7 @@ def register_user(request):
         user = authenticate(username=username, password=password)
         login(request, user)
         messages.success(request, f'Account for username {username} successfully created.')
-        return redirect('home_page')
+        return redirect('home')
   else:
       form = SignUpForm() 
   return render(request, 'registration/registration_form.html', {'form': form})
@@ -36,7 +36,7 @@ def user_login(request):
             if user.is_active:
                 login(request, user)
 
-                return HttpResponseRedirect(reverse("home_page"))
+                return HttpResponseRedirect(reverse("home"))
             else:
                 return HttpResponseRedirect(reverse("user_login")) 
 

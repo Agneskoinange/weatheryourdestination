@@ -5,7 +5,7 @@ def user_has_city(function):
     def wrap(request, *args, **kwargs):
        
         if not request.user.profile.city:
-            return redirect('home_page')
+            return redirect('home')
         else:
             return function(request, *args, **kwargs)
     wrap.__doc__ = function.__doc__
